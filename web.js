@@ -1,11 +1,11 @@
-var express = require('express');
-var gulp = require('gulp');
-var replace = require('gulp-replace');
+const express = require('express');
+const gulp = require('gulp');
+const replace = require('gulp-replace');
 
-var app = express();
-var port = Number(process.env.PORT || 8080);
-var appId = process.env.FIDJ_APP_ID || 'demo';
-var fidjProd = process.env.FIDJ_APP_PROD || 'true';
+const app = express();
+const port = Number(process.env.PORT || 8080);
+const appId = process.env.FIDJ_APP_ID || 'demo';
+const fidjProd = process.env.FIDJ_APP_PROD || 'true';
 
 gulp
     .src(['www/build/main.js'])
@@ -14,7 +14,7 @@ gulp
     .on('end', function () {
 
         app.use(express.static(__dirname + '/www'));
-        var server = app.listen(port, function () {
+        const server = app.listen(port, function () {
             console.log('Listening on port %d', server.address().port);
         });
 
