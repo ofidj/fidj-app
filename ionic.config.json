@@ -1,0 +1,9 @@
+{
+  "name": "fidj-app",
+  "type": "fidj",
+  "integrations": {
+    "cordova": {},
+    "gulp": {}
+  },
+  "app_id": ""
+}
