@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  version : '21.5.17.S',
+  appId : 'fidj-sandbox-0123fe7ed0000001',
 };
 
 /*

@@ -1,10 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-// import {NavController} from 'ionic-angular';
 import {FidjService} from 'fidj';
-// import {HomePage} from "../home/home";
-// import {Profile} from "../../app/shared/profile.service";
-// import {version} from "../../app/shared/version.const";
-// import {Network} from "@ionic-native/network";
+import {environment} from '../../environments/environment';
 import {Subscription} from 'rxjs';
 import {Router} from '@angular/router';
 
@@ -15,17 +11,19 @@ import {Router} from '@angular/router';
 })
 export class SigninPage implements OnInit {
 
-    // public appVersion = version;
-    private connected: Subscription;
+    public appVersion = environment.version;
     userLoginEmail: any;
     userLoginPassword: any;
-    appVersion: any;
     asUser: boolean;
+
+    loginError: string;
+
+    // private connected: Subscription;
 
     constructor(
         // public navCtrl: NavController,
-        //      private network: Network,
-        //    private profile: Profile,
+        // private network: Network,
+        // private profile: Profile,
         private router: Router,
         private fidjService: FidjService
     ) {
@@ -48,11 +46,13 @@ export class SigninPage implements OnInit {
     }
 
     async login(email, pwd) {
-        // this.profile.setEmail(email);
+
+        this.loginError = '';
         try {
             await this.fidjService.login(email, pwd);
             await this.router.navigateByUrl('/my');
         } catch (err) {
+            this.loginError = 'Bad credentials'
             console.error(JSON.stringify(err, Object.getOwnPropertyNames(err)));
         }
     }

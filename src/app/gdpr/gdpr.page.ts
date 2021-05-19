@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {EndpointInterface, FidjService} from '../../../../fidj/dist';
+import {FidjService} from 'fidj';
 import {Router} from '@angular/router';
 
 @Component({
@@ -52,7 +52,6 @@ export class GdprPage {
         } catch (e) {
             console.warn(e);
         }
-
     }
 
 }
