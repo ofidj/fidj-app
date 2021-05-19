@@ -11,7 +11,7 @@ install:
  - npm install
  #- npm version patch -m "[ci skip] version bumped %s"
 script:
- - npm test
+# - npm test
  - npm run build-prod
 deploy:
   provider: pages
