@@ -6,12 +6,9 @@ branches:
   only:
     - main
 install:
- #- git config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
- #- git fetch --tags --depth=10000
  - npm install
- #- npm version patch -m "[ci skip] version bumped %s"
 script:
-# - npm test
+ - npm test
  - npm run build-prod
  - echo "fidj.ovh" > www/CNAME
 deploy:
