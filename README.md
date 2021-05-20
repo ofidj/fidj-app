@@ -18,6 +18,6 @@ In [Release notes](./RELEASE.md).
 
 [fidj-image]: https://fidj.ovh/_/fidj/badges/github.svg
 [fidj-url]: https://fidj.ovh/_/fidj
-[travis-image]: https://travis-ci.org/fidj/fidj-app.svg?branch=main
-[travis-url]: https://travis-ci.org/fidj/fidj-app
+[travis-image]: https://travis-ci.org/ofidj/fidj-app.svg?branch=main
+[travis-url]: https://travis-ci.org/ofidj/fidj-app
 
