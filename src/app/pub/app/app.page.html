@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
         <ion-title>
-            <img src="assets/fidj-logo.png" height="15em"> Apps
+            <img src="assets/fidj-logo.png" height="15em"> {{appId}}
         </ion-title>
     </ion-toolbar>
 </ion-header>
@@ -14,7 +14,7 @@
 
     <ion-header collapse="condense">
         <ion-toolbar>
-            <ion-title size="large">Apps</ion-title>
+            <ion-title size="large">{{appId}}</ion-title>
         </ion-toolbar>
     </ion-header>
 
@@ -22,14 +22,7 @@
         <ion-row>
             <ion-col size-md="8" offset-md="2" size-sm="12">
 
-                <ion-list *ngIf="profileAppsOwned">
-                    <ion-item-sliding *ngFor="let appOwned of profileAppsOwned; let index = index">
-                        <ion-item>
-                            <ion-label>{{appOwned.title}} - {{appOwned.description}}</ion-label>
-                          <a href="{{appOwned.pub}}"><img src="{{appOwned.badge}}"/></a>
-                        </ion-item>
-                    </ion-item-sliding>
-                </ion-list>
+                appId : {{appId}}
 
             </ion-col>
         </ion-row>

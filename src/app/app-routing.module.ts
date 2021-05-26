@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./my/my.module').then(m => m.MyPageModule)
   },
   {
+    path: 'pub',
+    loadChildren: () => import('./pub/pub.module').then(m => m.PubPageModule)
+  },
+  {
     path: '',
     redirectTo: '/signin',
     pathMatch: 'full'

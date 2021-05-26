@@ -3,11 +3,11 @@ import {Router} from '@angular/router';
 import {FidjConnectionService} from '../shared/fidj.connection.service';
 
 @Component({
-  selector: 'app-my',
-  templateUrl: 'my.page.html',
-  styleUrls: ['my.page.scss']
+  selector: 'app-pub',
+  templateUrl: '../my/my.page.html',
+  styleUrls: ['../my/my.page.scss']
 })
-export class MyPage implements OnInit {
+export class PubPage implements OnInit {
 
   constructor(
       private router: Router,
