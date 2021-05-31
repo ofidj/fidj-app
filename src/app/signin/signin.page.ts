@@ -3,6 +3,7 @@ import {FidjService} from 'fidj';
 import {environment} from '../../environments/environment';
 import {Subscription} from 'rxjs';
 import {Router} from '@angular/router';
+import {FidjConnectionService} from '../shared/fidj.connection.service';
 
 @Component({
     selector: 'app-signin',
@@ -25,13 +26,13 @@ export class SigninPage implements OnInit {
         // private network: Network,
         // private profile: Profile,
         private router: Router,
-        private fidjService: FidjService
+        private fidjService: FidjService,
+        private fidjConnectionService: FidjConnectionService,
     ) {
         this.asUser = true;
     }
 
     ngOnInit() {
-
         if (this.fidjService.isLoggedIn()) {
             return this.router.navigateByUrl('/my');
         } else {

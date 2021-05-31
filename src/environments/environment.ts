@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  version : '21.5.17.S',
+  version : '21.6.01.S',
   appId : 'fidj-sandbox-0123fe7ed0000001',
 };
 

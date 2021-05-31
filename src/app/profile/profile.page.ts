@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {EndpointInterface, FidjService} from 'fidj';
+import {FidjConnectionService} from '../shared/fidj.connection.service';
 
 @Component({
     selector: 'app-profile',
@@ -22,7 +23,9 @@ export class ProfilePage {
 
     constructor(
         private router: Router,
-        private fidjService: FidjService) {
+        private fidjService: FidjService,
+        private fidjConnectionService: FidjConnectionService,
+    ) {
 
         this.refresh(null);
     }
@@ -38,6 +41,7 @@ export class ProfilePage {
             this.profileAppsSubscribed = this.me.user.appsSubscribed ? this.me.user.appsSubscribed : [];
         } catch (e) {
             this.me = null;
+            await this.fidjConnectionService.checkError(e);
         }
         if (event) {
             event.target.complete();
