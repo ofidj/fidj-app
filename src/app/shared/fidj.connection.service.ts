@@ -6,6 +6,8 @@ import {FidjService, ErrorInterface} from 'fidj';
     providedIn: 'root',
 })
 export class FidjConnectionService {
+    private absUrl = 'https://fidj.ovh/v3';
+
     constructor(
         private router: Router,
         private fidjService: FidjService,
@@ -32,5 +34,14 @@ export class FidjConnectionService {
                 await this.router.navigateByUrl('/');
             }
         }
+    }
+
+    setUrl(url: string) {
+        this.absUrl = url;
+        // console.log(this.absUrl);
+    }
+
+    getUrl(): string {
+        return this.absUrl;
     }
 }

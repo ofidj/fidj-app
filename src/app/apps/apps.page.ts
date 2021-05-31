@@ -29,8 +29,12 @@ export class AppsPage {
             const idToken = await this.fidjService.getIdToken();
             const payload = idToken.split('.')[1];
             payloadInfo = JSON.parse(Base64.decode(payload));
+            this.fidjConnectionService.setUrl(payloadInfo.iss);
             // console.log(typeof payloadInfo, payloadInfo);
         } catch (e) {
+            if (event) {
+                event.target.complete();
+            }
             return await this.fidjConnectionService.checkError(e);
         }
 
@@ -44,8 +48,8 @@ export class AppsPage {
                     key: 'apps',
                     relativePath: this.me.user.appsOwned[i]
                 })).app;
-                app.badge = payloadInfo.iss + `/apps/${app.id}/badge`;
-                app.pub = `#/pub/${app.title}`;
+                app.badge = this.fidjConnectionService.getUrl() + `/apps/${app.id}/badge`;
+                app.pub = `#/pub/${app.id}`;
                 this.profileAppsOwned.push(app);
             }
         } catch (e) {

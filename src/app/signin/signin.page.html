@@ -7,7 +7,8 @@
                         <h1>Welcome in <img src="assets/fidj-logo.png" height="20em"></h1>
                     </ion-card-header>
                     <ion-card-content>
-                        <form #heroForm="ngForm">
+                        <form #heroForm="ngForm" (ngSubmit)="login(userLoginEmail, userLoginPassword)"
+                              (keyup.enter)="login(userLoginEmail, userLoginPassword)">
                             <ion-item [hidden]="!loginError">
                                 <ion-label color="danger">{{loginError}}</ion-label>
                             </ion-item>

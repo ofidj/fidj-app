@@ -11,6 +11,7 @@ import {FidjConnectionService} from '../../shared/fidj.connection.service';
 export class AppPage implements OnInit {
 
     public appId: string;
+    public appDetail: any;
 
     constructor(
         private router: Router,
@@ -24,5 +25,25 @@ export class AppPage implements OnInit {
         // this is where we'll grab data
         // grab using the snapshot method
         this.appId = this.route.snapshot.params.appId;
+        this.refresh(null);
+    }
+
+    async refresh(event) {
+
+        try {
+            this.appDetail = (await this.fidjService.sendOnEndpoint({
+                verb: 'GET',
+                key: 'apps',
+                relativePath: this.appId
+            })).app;
+            this.appDetail.badge = this.fidjConnectionService.getUrl() + `/apps/${this.appId}/badge`;
+            // console.log('appDetail:', this.appDetail);
+        } catch (e) {
+            await this.fidjConnectionService.checkError(e);
+        }
+
+        if (event) {
+            event.target.complete();
+        }
     }
 }

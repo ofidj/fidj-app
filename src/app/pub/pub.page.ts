@@ -4,7 +4,7 @@ import {FidjConnectionService} from '../shared/fidj.connection.service';
 
 @Component({
   selector: 'app-pub',
-  templateUrl: '../my/my.page.html',
+  templateUrl: 'pub.page.html',
   styleUrls: ['../my/my.page.scss']
 })
 export class PubPage implements OnInit {
