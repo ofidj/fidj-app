@@ -6,7 +6,7 @@ import {FidjService, ErrorInterface} from 'fidj';
     providedIn: 'root',
 })
 export class FidjConnectionService {
-    private absUrl = 'https://fidj.ovh/v3';
+    private absUrl = 'https://api.fidj.ovh/v3';
 
     constructor(
         private router: Router,
