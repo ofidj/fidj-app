@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Base64, FidjService} from 'fidj';
 import {FidjConnectionService} from '../../shared/fidj.connection.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
     selector: 'app-app',
@@ -18,6 +19,7 @@ export class AppPage implements OnInit {
         private route: ActivatedRoute,
         private fidjService: FidjService,
         private fidjConnectionService: FidjConnectionService,
+        private http: HttpClient,
     ) {
     }
 
@@ -31,13 +33,11 @@ export class AppPage implements OnInit {
     async refresh(event) {
 
         try {
-            this.appDetail = (await this.fidjService.sendOnEndpoint({
-                verb: 'GET',
-                key: 'apps',
-                relativePath: this.appId
-            })).app;
-            this.appDetail.badge = this.fidjConnectionService.getUrl() + `/apps/${this.appId}/badge`;
-            // console.log('appDetail:', this.appDetail);
+            this.http.get<any>(this.fidjConnectionService.getUrl() + `/apps/${this.appId}`).subscribe(data => {
+                console.log('data:', data);
+                this.appDetail = data.app;
+                this.appDetail.badge = this.fidjConnectionService.getUrl() + `/apps/${this.appId}/badge`;
+            });
         } catch (e) {
             await this.fidjConnectionService.checkError(e);
         }
