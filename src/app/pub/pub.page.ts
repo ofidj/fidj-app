@@ -15,7 +15,7 @@ export class PubPage implements OnInit {
 
 
   ngOnInit() {
-    this.fidjConnectionService.checkLogin();
+    // this.fidjConnectionService.checkLogin();
   }
 
 }
