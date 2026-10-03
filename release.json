@@ -1,0 +1,10 @@
+{
+  "environment": "production",
+  "version": "3.21.2",
+  "source": "68c5145d3f44194c3a7c401796407380b722b4bf",
+  "dependencies": {
+    "fidj-api-contracts": "ea2a1208c980b9b8c007cb6541ff4ace2b4ed7c1",
+    "fidj-node": "af3ab94c6dbaa3d4eb93d2f338d05b44c1851a25",
+    "generator-fidj": "c3c898afe2ae65397a5000790d47d4005b04c47e"
+  }
+}
